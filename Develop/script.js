@@ -19,19 +19,15 @@ function generatePassword () {
   };
 
   var special = confirm("Click Ok to confirm your password including special character");
-  if (!special) { cancelationNumber++; };
   var numeric = confirm("Click Ok to confirm your password including numeric character");
-  if (!numeric) { cancelationNumber++; };
   var lowerCase = confirm("Click Ok to confirm your password including lowercase character");
-  if (!lowerCase) { cancelationNumber++; };
   var upperCase = confirm("Click Ok to confirm your password including uppercase character");
-  if (!upperCase) { 
-    cancelationNumber++; 
-    if (cancelationNumber === 4){
+  
+  if (!special && !numeric && !lowerCase && !upperCase) { 
       window.alert("At least one charater type must be selected")
     };
 
-  For (password.length < userPasswordLenght) {
+  For (password.length < passwordLenght) {
     if (special) {
       function specialCharacterFunction ();
     }
