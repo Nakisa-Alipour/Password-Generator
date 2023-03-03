@@ -51,7 +51,11 @@ function generatePassword () {
       randomElement = upperCaseCharacters [randomIndex];
       password=password.unshift(randomElement);
     }
+
   }
+
+  password = password.toString();
+  return;
 
 };
 
