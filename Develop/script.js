@@ -51,17 +51,17 @@ var numericCharacters = ["0","1","2","3","4","5","6","7","8","9"];
 var lowerCaseCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var upperCaseCharacters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var cancelationNumber = 0;
-var passwordLenght;
+var userPasswordLenght;
 var password = [];
 
-var passwordLenght = prompt ("How many charater would you like your password to contain?", " ")
-if ((passwordLenght>8) && (passwordLenght<128)) {
+var userPasswordLenght = prompt ("How many charater would you like your password to contain?", " ")
+if ((userPasswordLenght>8) && (userPasswordLenght<128)) {
   generatePassword();
 } else {
   prompt ("Password length must be between 8 to 128 charater.");
 };
 
-function cancelation (){
+function cancelationNumber (){
   cancelationNumber++;
   if (cancelationNumber === 4){
     window.alert("At least one charater type must be selected");
@@ -70,16 +70,49 @@ function cancelation (){
 
 
 function generatePassword () {
+  function specialCharacterFunction () {
   userAnswer = confirm("Click Ok to confirm your password including special character");
-  if (userAnswer) {
-    function random() {
+  if ((userAnswer) && (password.length < userPasswordLenght)) {
     var randomIndex = Math.floor(Math.random() * specialCharacters.length);
     randomElement = specialCharacters [randomIndex];
     password=password.unshift(randomElement);
-    }
   } else {
-    cancelation();
-  }
+    cancelationNumber ();
+  };
+  };
+  
+  function numericCharacterFunction () {
+  userAnswer = confirm("Click Ok to confirm your password including numeric character");
+  if (userAnswer) {
+    var randomIndex = Math.floor(Math.random() * numericCharacters.length);
+    randomElement = numericCharacters [randomIndex];
+    password=password.unshift(randomElement);
+  } else {
+    cancelationNumber ();
+  };
+  };
+
+  function lowerCaseCharacterFunction () {
+  userAnswer = confirm("Click Ok to confirm your password including lowercase character");
+  if (userAnswer) {
+    var randomIndex = Math.floor(Math.random() * lowerCaseCharacters.length);
+    randomElement = lowerCaseCharacters [randomIndex];
+    password=password.unshift(randomElement);
+  } else {
+    cancelationNumber ();
+  };
+  };
+
+  function upperCaseCharacterFunction () {
+  userAnswer = confirm("Click Ok to confirm your password including uppercase character");
+  if (userAnswer) {
+    var randomIndex = Math.floor(Math.random() * upperCaseCharacters.length);
+    randomElement = upperCaseCharacters [randomIndex];
+    password=password.unshift(randomElement);
+  } else {
+    cancelationNumber ();
+  };
+};
 
 }
 
