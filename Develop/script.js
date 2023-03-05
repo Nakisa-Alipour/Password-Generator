@@ -26,6 +26,7 @@ function generatePassword () {
   
   if (!special && !numeric && !lowerCase && !upperCase) { 
       window.alert("At least one charater type must be selected")
+      generatePassword ();
     };
 
   var password = [];
@@ -35,28 +36,28 @@ function generatePassword () {
     if (special && (randomNum === 1)) {
       var randomIndex = Math.floor(Math.random() * specialCharacters.length);
       randomElement = specialCharacters [randomIndex];
-      password=password.unshift(randomElement);
+      password.push(randomElement);
     }
     if (numeric && (randomNum === 2)) {
       var randomIndex = Math.floor(Math.random() * numericCharacters.length);
       randomElement = numericCharacters [randomIndex];
-      password=password.unshift(randomElement);
+      password.push(randomElement);
     }
     if (lowerCase && (randomNum === 3)) {
       var randomIndex = Math.floor(Math.random() * lowerCaseCharacters.length);
       randomElement = lowerCaseCharacters [randomIndex];
-      password=password.unshift(randomElement);
+      password.push(randomElement);
     }
     if (upperCase && (randomNum === 4)) {
       var randomIndex = Math.floor(Math.random() * upperCaseCharacters.length);
       randomElement = upperCaseCharacters [randomIndex];
-      password=password.unshift(randomElement);
+      password.push(randomElement);
     }
 
   }
 
 
-  return password;
+  return password.join("");
 
 };
 
