@@ -15,6 +15,7 @@ function generatePassword () {
     return; 
   } else if ((passwordLength < 8) || (passwordLength > 128)) {
     window.alert ("Password length must be between 8 to 128 charater.");
+    generatePassword ();
     return;
   }
 
@@ -54,11 +55,10 @@ function generatePassword () {
 
   }
 
-  password = password.toString();
-  return;
+
+  return password;
 
 };
-
 
 
 // Write password to the #password input
