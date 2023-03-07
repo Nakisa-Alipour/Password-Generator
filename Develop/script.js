@@ -12,11 +12,10 @@ function generatePassword () {
   var passwordLength = prompt ("How many charater would you like your password to contain?", " ")
   if (passwordLength === null) {
     return; 
-  } else if ((passwordLength < 8) || (passwordLength > 128)) {
+    } else if ((passwordLength < 8) || (passwordLength > 128)) {
     window.alert ("Password length must be between 8 to 128 charater.");
-    generatePassword ();
-    return;
-  }
+    return generatePassword ();
+    }; 
 
   var special = confirm("Click Ok to confirm your password including special character");
   var numeric = confirm("Click Ok to confirm your password including numeric character");
@@ -25,7 +24,7 @@ function generatePassword () {
   
   if (!special && !numeric && !lowerCase && !upperCase) { 
       window.alert("At least one charater type must be selected")
-      generatePassword ();
+    return generatePassword ();
     };
 
   var password = [];
